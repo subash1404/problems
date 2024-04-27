@@ -1,3 +1,4 @@
+//Find Duplicate elements in an array and print them
 import java.util.*;
 public class FindDuplicates {
     static List<Integer> findDuplicates(int[] num){

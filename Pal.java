@@ -1,3 +1,5 @@
+
+//Palindrome for numbers and Strings (also using reverse() method)
 import java.util.Scanner;
 
 public class Pal {

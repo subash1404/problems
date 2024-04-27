@@ -1,3 +1,4 @@
+//Flatten a 2D array
 import java.util.*;
 import java.util.stream.*;
 public class FlattenArray {
