@@ -1,0 +1,137 @@
+1.To find the lighter (5 gm) coin among 8 coins, where the rest are 10 gm, using a balance scale twice, you can follow these steps:
+
+### Step 1: Divide Coins into Groups
+Divide the 8 coins into three groups:
+- Group A: 3 coins (e.g., coins 1, 2, 3)
+- Group B: 3 coins (e.g., coins 4, 5, 6)
+- Group C: 2 coins (e.g., coins 7, 8)
+
+### Step 2: First Weighing
+Use the balance scale to weigh Group A against Group B:
+- **Case 1: If they are equal**: The lighter coin is in Group C. Proceed to Step 3a.
+- **Case 2: If they are unequal**: The lighter coin is in the lighter group. Proceed to Step 3b.
+
+### Step 3a: Find the Lighter Coin in Group C
+Now you have 2 coins in Group C, with one being the lighter 5 gm coin.
+- Weigh these two coins against each other:
+  - The lighter side indicates the 5 gm coin.
+
+### Step 3b: Find the Lighter Coin in the Lighter Group
+Suppose Group A was lighter in Step 2. Now you have 3 coins in Group A, with one being the 5 gm coin.
+- Weigh two coins from Group A against each other:
+  - If one side is lighter, the lighter coin is the 5 gm coin.
+  - If they are equal, the third coin is the 5 gm coin.
+
+### Example Implementation
+- **First Weighing**: Weigh coins 1, 2, 3 against coins 4, 5, 6.
+  - **If they are equal**: Weigh coins 7 and 8 against each other to find the lighter coin.
+  - **If they are unequal**: Identify the lighter group.
+    - **If Group A is lighter**: Weigh coins 1 and 2 against each other.
+      - If one is lighter, that's the 5 gm coin.
+      - If they are equal, coin 3 is the 5 gm coin.
+    - **If Group B is lighter**: Weigh coins 4 and 5 against each other.
+      - If one is lighter, that's the 5 gm coin.
+      - If they are equal, coin 6 is the 5 gm coin.
+
+With this approach, you can find the 5 gm coin using only two weighings.
+
+
+
+
+
+
+2.To determine the number of seconds it takes to cut a chocolate bar into 161 pieces, let's consider the process of cutting and understand the relationship between cuts and pieces.
+
+### Relationship Between Cuts and Pieces
+- With each cut, you create one additional piece.
+- If you have `n` cuts, you get `n + 1` pieces.
+
+Given this, if you have 161 pieces, the number of cuts required would be:
+
+\[ \text{number of cuts} = \text{number of pieces} - 1 \]
+
+Substituting the given number of pieces (161), you get:
+
+\[ \text{number of cuts} = 161 - 1 = 160 \]
+
+### Time to Cut the Chocolate Bar
+Since it takes 2 seconds to make each cut, the total time to cut the bar into 161 pieces would be:
+
+\[ \text{total time} = \text{number of cuts} \times \text{time per cut} \]
+
+Substitute the calculated number of cuts and the time per cut (2 seconds):
+
+\[ \text{total time} = 160 \times 2 = 320 \text{ seconds} \]
+
+### Conclusion
+To cut a chocolate bar into 161 pieces, it would take 320 seconds.
+
+
+
+
+
+
+3.Problem
+A man needs to climb a 50-meter tall structure. He can jump 4 meters upward, but due to gravity, he falls 3 meters after each jump. How many jumps will it take for him to reach the top?
+
+### Solution
+Given that each jump gains 1 meter in height (4 meters up minus 3 meters down), let's find the total number of jumps required to reach or exceed 50 meters.
+
+1. **Net Gain Per Jump**:
+   - After each jump, the net gain is 1 meter (4 meters up, 3 meters down).
+
+2. **Progression**:
+   - With each jump, the man moves 1 meter higher. Therefore, if he makes 45 jumps, he would have reached 45 meters.
+
+3. **Final Jumps**:
+   - On the 46th jump, he jumps 4 meters, reaching a total height of 49 meters. After falling 3 meters, he ends up at 46 meters.
+   - On the 47th jump, he jumps 4 meters again, reaching a total of 50 meters.
+
+4. **Answer**:
+   - Thus, it takes **47 jumps** for the man to reach or exceed 50 meters. The final jump allows him to reach the desired height without falling back below 50 meters.
+
+
+
+
+
+4.Problem Statement
+You have 10 boxes, each containing balls. Nine of these boxes contain balls weighing 10 grams each, while one box contains balls weighing 9 grams each. You have a weighing machine. Find out which box contains the 9-gram balls by using the weighing machine the minimum number of times.
+
+### Solution Strategy
+To find the box with 9-gram balls using the weighing machine only once, you can use a strategic approach involving different weights of balls from each box. This approach relies on the difference in expected weight to identify the box with the lighter balls.
+
+### Solution
+1. **Ball Selection**:
+   - From the first box, take one ball.
+   - From the second box, take two balls.
+   - From the third box, take three balls.
+   - Continue this pattern, taking \(n\) balls from the \(n\)th box, until the tenth box, from which you take ten balls.
+
+2. **Expected Total Weight**:
+   - If all boxes contain 10-gram balls, the expected total weight of all the selected balls is 550 grams:
+     \[
+     \text{Expected Weight} = \sum_{n=1}^{10} n \times 10 = 1 \times 10 + 2 \times 10 + \ldots + 10 \times 10 = 550 \text{ grams}
+     \]
+
+3. **Weighing and Finding the Difference**:
+   - Weigh all the selected balls together to get the actual total weight.
+   - Calculate the difference between the expected total weight and the actual total weight:
+     \[
+     \text{Difference} = \text{Expected Weight} - \text{Actual Weight}
+     \]
+
+4. **Identify the Box with the 9-Gram Balls**:
+   - Since the difference is a result of the lighter balls from the box containing 9-gram balls, you can identify which box contains these lighter balls by the magnitude of the difference.
+   - The difference corresponds to the number of balls taken from the box containing the 9-gram balls. Thus:
+     - If the difference is 1 gram, the first box has 9-gram balls.
+     - If the difference is 2 grams, the second box has 9-gram balls.
+     - If the difference is 3 grams, the third box has 9-gram balls.
+     - Continue this pattern up to the tenth box.
+
+### Example
+Suppose the actual total weight after weighing is 547 grams:
+- The expected weight is 550 grams.
+- The difference is \(550 - 547 = 3\), indicating that the third box contains the 9-gram balls.
+
+### Conclusion
+By using the weighing machine only once, you can determine which box contains the 9-gram balls by examining the difference between the expected and actual total weights of the selected balls. The difference corresponds to the number of balls taken from the box with the 9-gram balls.

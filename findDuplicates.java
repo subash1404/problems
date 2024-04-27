@@ -1,5 +1,5 @@
 import java.util.*;
-public class findDuplicates {
+public class FindDuplicates {
     static List<Integer> findDuplicates(int[] num){
         int n = num.length;
         Set<Integer> visitedSet = new HashSet<>();
