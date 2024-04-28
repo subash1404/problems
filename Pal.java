@@ -21,7 +21,7 @@ public class Pal {
         }
 
 
-        //Palindrome for integer using StrinBuilder 
+        //Palindrome for integer using StringBuilder 
         // int num = sc.nextInt();
         // String n = Integer.toString(num);
         // // String n1 = String.valueOf(num);
