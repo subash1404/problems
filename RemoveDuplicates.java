@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Solution {
+class RemoveDuplicates {
     //If the array is not sorted
     // static public HashSet<Integer> removeDuplicates(int[] nums) {
     //     HashSet<Integer> set = new HashSet<>();
