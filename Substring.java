@@ -9,7 +9,7 @@
 // Explanation: A is not a subsequence of B
 // as 'Y' appears before 'A'.
 
-class Solution {
+class SubString {
     boolean isSubSequence(String A, String B) {
         int aIndex = 0;
         int bIndex = 0;
