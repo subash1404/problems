@@ -2,136 +2,94 @@ package LL;
 
 import java.util.Scanner;
 
-class Node {
+class Node{
     int data;
     Node prev;
     Node next;
 }
 
-class LinkedList {
+class LinkedList{
     Node head;
-
-    public void insertAtFirst(int data) {
+    public void insertAtFirst(int data){
         Node node = new Node();
         node.data = data;
-        node.prev = null;
         node.next = head;
+        node.prev = null;
         if(head != null){
             head.prev = node;
+            Node temp = head;
+            while(temp.next != head){
+                temp = temp.next;
+            }
+            temp.next = node;
         }
         head = node;
     }
-
-    public void insertAtLast(int data) {
-        if(head == null){
-            insertAtFirst(data);
-            return;
-        }
+    public void insertAtLast(int data){
         Node node = new Node();
         node.data = data;
         Node temp = head;
-        while (temp.next != null) {
+        while(temp.next != head){
             temp = temp.next;
         }
         temp.next = node;
         node.prev = temp;
-        node.next = null;
+        node.next = head;
     }
-
-    public void insertAtPos(int index, int data) {
+    public void insertAtPos(int index,int data){
         Node node = new Node();
         node.data = data;
-        if (index == 1) {
-            insertAtFirst(data);
-            return;
-        }
-        if (index < 0) {
-            System.out.println("Negative Index");
-            return;
-        }
         Node temp = head;
-        for (int i = 0; i < index - 1; i++) {
-            if (temp.next != null){
-                temp = temp.next;
-                System.out.println(temp.data);
-            }
-            else {
-                System.out.println("Index out of bounds");
-                return;
-            }
+        for(int i=1;i<index;i++){
+            temp = temp.next;
         }
         node.next = temp.next;
         node.prev = temp;
         temp.next.prev = node;
         temp.next = node;
     }
+    public void print(){
+        Node temp = head;
+        while(temp.next !=head){
+            System.out.print(temp.data);
+            temp = temp.next;
+        }
+        System.out.println(temp.data);
+    }
     public void deleteAtFirst(){
+        Node temp = head;
+        while (temp.next != head) {
+            temp = temp.next;
+        }
+        temp.next = head.next;
         head = head.next;
         head.prev = null;
     }
     public void deleteAtLast(){
         Node temp = head;
-        while(temp.next != null){
+        while (temp.next.next !=head) {
             temp = temp.next;
         }
-        temp.prev.next = null;
+        temp.next = head;
     }
     public void deleteAtPos(int index){
         Node temp = head;
-        if(index == 1){
-            deleteAtFirst();
-            return;
-        }
-        if(head == null) return;
-        for(int i=1;i<index;i++){
+        for(int i=1;i<index -1;i++){
             temp = temp.next;
         }
         if(temp.next == null){
             deleteAtLast();
             return;
         }
+        if(index == 1){
+            deleteAtFirst();
+            return;
+        }
         temp.prev.next = temp.next;
         temp.next.prev = temp.prev;
     }
-    // public void deleteAtPos(int index) {
-    //     if (head == null) {
-    //         System.out.println("List is empty");
-    //         return;
-    //     }
-    //     Node temp = head;
-
-    //     if (index == 1) {
-    //         deleteAtFirst();
-    //         return;
-    //     }
-
-    //     for (int i = 1; i < index; i++) {
-    //         if (temp.next == null) {
-    //             System.out.println("Index out of bounds");
-    //             return;
-    //         }
-    //         temp = temp.next;
-    //     }
-
-    //     if (temp.next != null) {
-    //         temp.prev.next = temp.next;
-    //         temp.next.prev = temp.prev;
-    //     } else {
-    //         temp.prev.next = null;
-    //     }
-    // }
-
-    void print() {
-        Node temp = head;
-        while (temp.next != null) {
-            System.out.print(temp.data + " ");
-            temp = temp.next;
-        }
-        System.out.println(temp.data);
-    }
 }
-
-public class Doubly {
+public class Circular {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LinkedList ll = new LinkedList();
