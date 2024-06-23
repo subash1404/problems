@@ -49,5 +49,6 @@ public class Anagram {
         System.out.println(isAnagram(str1, str2));
         System.out.println(isAnagram2(str1, str2));
         System.out.println(isAnagram3(str1, str2));
+        sc.close();
     }
 }
