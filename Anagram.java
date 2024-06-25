@@ -1,11 +1,14 @@
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Anagram {
     static public boolean isAnagram(String s, String t) {
         HashMap<Character,Integer> map = new HashMap<>();
         if(s.length() != t.length()) return false;
+        // anagram naaagram
+        // a:3 n:1 g:1 r:1 m:1 
         for(char ch : s.toCharArray()){
             map.put(ch,map.getOrDefault(ch,0)+1);
         }
@@ -19,7 +22,6 @@ public class Anagram {
         }
         return true;
     }
-    
     static public boolean isAnagram2(String s, String t) {
         int[] arr = new int[26];
         for (char ch : s.toCharArray()) {

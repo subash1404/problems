@@ -15,6 +15,34 @@ public class KthMissingNumber {
         }
         return -1;
     }
+    // Better soln
+    static public int findKthPositive2(int[] arr, int k) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] <= k)
+                k++;
+            else
+                break;
+        }
+        return k;
+    }
+    // Optimal(BS)
+    static public int findKthPositive3(int[] arr, int k) {
+        int low = 0, high = arr.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            //Formula to find the no of missing elemnts at a particular index
+            int missing = arr[mid] - (mid + 1);
+            // If the no of missing elements at the mid is < k eliminate the left part
+            if (missing < k)
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+        // High will eventually go before low at one point
+        // High and low will be at adjacent indices
+        // return and using this (kind of a formula)
+        return k + high + 1;
+    }
     public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
@@ -24,5 +52,7 @@ public class KthMissingNumber {
         arr[i] = sc.nextInt();
     }
     System.out.println(findKthPositive(arr,x));
+    System.out.println(findKthPositive2(arr,x));
+    System.out.println(findKthPositive3(arr,x));
 }
 }

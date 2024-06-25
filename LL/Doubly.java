@@ -8,7 +8,7 @@ class Node {
     Node next;
 }
 
-class LinkedList {
+class DoublyLL {
     Node head;
 
     public void insertAtFirst(int data) {
@@ -134,7 +134,7 @@ class LinkedList {
 public class Doubly {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        LinkedList ll = new LinkedList();
+        DoublyLL ll = new DoublyLL();
         boolean exit = false;
         while (!exit) {
             System.out.print("Enter choice :");

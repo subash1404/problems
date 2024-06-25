@@ -2,45 +2,54 @@ package LL;
 
 import java.util.Scanner;
 
-class Node{
+class Node {
     int data;
     Node prev;
     Node next;
 }
 
-class LinkedList{
+class CircularLinkedList {
     Node head;
-    public void insertAtFirst(int data){
+
+    public void insertAtFirst(int data) {
         Node node = new Node();
         node.data = data;
-        node.next = head;
-        node.prev = null;
-        if(head != null){
+        if (head == null) {
+            head = node;
+            head.next = head;
+            head.prev = head;
+        } else {
+            Node last = head.prev;
+
+            node.next = head;
+            node.prev = last;
+
             head.prev = node;
-            Node temp = head;
-            while(temp.next != head){
-                temp = temp.next;
-            }
-            temp.next = node;
+            last.next = node;
+
+            head = node;
         }
-        head = node;
     }
-    public void insertAtLast(int data){
+
+    public void insertAtLast(int data) {
         Node node = new Node();
         node.data = data;
-        Node temp = head;
-        while(temp.next != head){
-            temp = temp.next;
-        }
-        temp.next = node;
-        node.prev = temp;
+        Node last = head.prev;
+        // Node temp = head;
+        // while (temp.next != head) {
+        // temp = temp.next;
+        // }
+        last.next = node;
+        node.prev = last;
         node.next = head;
+        head.prev = node;
     }
-    public void insertAtPos(int index,int data){
+
+    public void insertAtPos(int index, int data) {
         Node node = new Node();
         node.data = data;
         Node temp = head;
-        for(int i=1;i<index;i++){
+        for (int i = 1; i < index; i++) {
             temp = temp.next;
         }
         node.next = temp.next;
@@ -48,40 +57,71 @@ class LinkedList{
         temp.next.prev = node;
         temp.next = node;
     }
-    public void print(){
+
+    public void print() {
         Node temp = head;
-        while(temp.next !=head){
-            System.out.print(temp.data);
+        while (temp.next != head) {
+            System.out.print(temp.data + " ");
             temp = temp.next;
         }
         System.out.println(temp.data);
     }
-    public void deleteAtFirst(){
+
+    // public void sort(){
+    // Node temp = head;
+    // while(true){
+    // Node index = temp.next;
+    // while(index != head){
+    // if(temp.data > index.data){
+    // int val = temp.data;
+    // temp.data = index.data;
+    // index.data = val;
+    // }
+    // index = index.next;
+    // }
+    // if (temp.next == head) break;
+    // else temp = temp.next;
+    // }
+    // }
+    public void sort() {
         Node temp = head;
-        while (temp.next != head) {
+        while (temp.next != head) { // temp != head not needed as i loop in bubble sort goes only till n-1
+            Node index = temp.next;
+            while (index != head) {
+                if (temp.data > index.data) {
+                    int val = temp.data;
+                    temp.data = index.data;
+                    index.data = val;
+                }
+                index = index.next;
+            }
             temp = temp.next;
         }
-        temp.next = head.next;
+    }
+
+    public void deleteAtFirst() {
+        Node last = head.prev;
+        last.next = head.next;
         head = head.next;
-        head.prev = null;
+        head.prev = last;
     }
-    public void deleteAtLast(){
+
+    public void deleteAtLast() {
+        Node last = head.prev;
+        last.prev.next = head;
+        head.prev = last.prev.prev;
+    }
+
+    public void deleteAtPos(int index) {
         Node temp = head;
-        while (temp.next.next !=head) {
+        for (int i = 1; i < index - 1; i++) {
             temp = temp.next;
         }
-        temp.next = head;
-    }
-    public void deleteAtPos(int index){
-        Node temp = head;
-        for(int i=1;i<index -1;i++){
-            temp = temp.next;
-        }
-        if(temp.next == null){
+        if (temp.next == null) {
             deleteAtLast();
             return;
         }
-        if(index == 1){
+        if (index == 1) {
             deleteAtFirst();
             return;
         }
@@ -89,10 +129,11 @@ class LinkedList{
         temp.next.prev = temp.prev;
     }
 }
+
 public class Circular {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        LinkedList ll = new LinkedList();
+        CircularLinkedList ll = new CircularLinkedList();
         boolean exit = false;
         while (!exit) {
             System.out.print("Enter choice :");
@@ -116,20 +157,23 @@ public class Circular {
                     ll.insertAtPos(index, data);
                     break;
                 case 4:
-                ll.deleteAtFirst();
-                break;
+                    ll.deleteAtFirst();
+                    break;
                 case 5:
-                ll.deleteAtLast();
-                break;
+                    ll.deleteAtLast();
+                    break;
                 case 6:
-                System.out.print("Enter pos :");
-                index = sc.nextInt();
-                ll.deleteAtPos(index);
-                break;
+                    System.out.print("Enter pos :");
+                    index = sc.nextInt();
+                    ll.deleteAtPos(index);
+                    break;
                 case 7:
                     ll.print();
                     break;
                 case 8:
+                    ll.sort();
+                    break;
+                case 9:
                     exit = true;
                     break;
                 default:

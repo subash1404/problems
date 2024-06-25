@@ -5,7 +5,7 @@ class Node{
     Node next;
 }
 
-class LinkedList{
+class SinglyLL{
     Node head;
     public void insertAtLast(int data){
         Node node = new Node();
@@ -89,7 +89,7 @@ class LinkedList{
 public class Singly {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        LinkedList ll = new LinkedList();
+        SinglyLL ll = new SinglyLL();
         boolean exit = false;
         while(!exit){
             System.out.print("Enter choice :");
