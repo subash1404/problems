@@ -32,14 +32,14 @@ public class DecodeString{
                  String str = "";
                  while(i < n && c[i] >= 'a' && c[i] <= 'z' ){
                     str += c[i];
-                    i++; 
+                    i++;
                 }
                 st.push(str);
             }
         }
         String res= "";
         while(!st.isEmpty()){
-            res += st.pop();
+            res = st.pop()+res;
         }
         return res;
     }
