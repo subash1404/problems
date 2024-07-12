@@ -1,7 +1,7 @@
 //Find all the duplicate elements in the given string
 import java.util.*;
 
-public class FindDuplicateString {
+public class findDuplicateString {
     static List<Character> findDuplicates(String str) {
         Set<Character> visitedSet = new HashSet<>();
         List<Character> dupList = new ArrayList<>();
