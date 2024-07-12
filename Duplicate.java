@@ -6,7 +6,7 @@ public class Duplicate {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
-        int index = 1;
+        int index = 0;
         char fnc = ' ';
         for(char s : str.toCharArray()){
             if(str.indexOf(s) == str.lastIndexOf(s)){
@@ -16,7 +16,7 @@ public class Duplicate {
                 index+=1;
             }
         }
-        if(index == str.length()-1){
+        if(index == str.length()){
             System.out.print("All Characters are repeating\n");
         }else{
             System.out.println(fnc);

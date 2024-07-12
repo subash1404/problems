@@ -8,7 +8,7 @@ public class LongestSubArraySumEqualsK {
     //      for(k=i -> j){
     //          sum += arr[k];
     //      }
-    //      if(sum == k) maxLen = Math.max(maxLen,j-1=i);
+    //      if(sum == k) maxLen = Math.max(maxLen,j-i+1);
     //      }
     //  }
 
@@ -17,7 +17,7 @@ public class LongestSubArraySumEqualsK {
     //  int sum =0;
     //  for(j=i -> n){
     //      sum+=arr[j];
-    // if(sum == k) maxLen = Math.max(maxLen,j-1=i);
+    // if(sum == k) maxLen = Math.max(maxLen,j-i+1);
     //  }
     // }
 

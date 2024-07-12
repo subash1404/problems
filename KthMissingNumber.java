@@ -40,7 +40,7 @@ public class KthMissingNumber {
         }
         // High will eventually go before low at one point
         // High and low will be at adjacent indices
-        // return and using this (kind of a formula)
+        // return using this (kind of a formula)
         return k + high + 1;
     }
     public static void main(String[] args) {

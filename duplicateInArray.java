@@ -1,4 +1,4 @@
-//Find the duplicate elements that appears once or twice in array of size n and the elements range is [1,n]
+//Find the duplicate elements that appears twice in array of size n and the elements range is [1,n]
 
 import java.util.*;
 class DuplicateInArray {

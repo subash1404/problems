@@ -5,6 +5,7 @@ public class CountSort {
     static int[] sort(int[] nums,int max){
         int[] arr = new int[max+1];
         int[] ans = new int[nums.length];
+        int[] rans = new int[nums.length];
         for(int i : nums){
             arr[i]++; 
         }
@@ -16,6 +17,10 @@ public class CountSort {
         for(int i : nums){
             int index = --arr[i];
             ans[index] = i;
+            rans[nums.length - 1 - index] = i;
+        }
+        for(int i : rans){
+            System.out.print(i+" ");
         }
         return ans;
     }
