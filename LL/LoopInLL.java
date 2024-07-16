@@ -58,7 +58,7 @@ public class LoopInLL {
         }
         return true;
     }
-    
+
     // Reverse a linked list using recursion
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null)
@@ -68,5 +68,38 @@ public class LoopInLL {
         front.next = head;
         head.next = null;
         return newHead;
+    }
+    // Find the length of a loop
+    static int countNodesinLoop(Node head) {
+        HashMap<Node, Integer> map = new HashMap<>();
+        Node temp = head;
+        int index = 0;
+        while (temp != null) {
+            if (map.containsKey(temp)) {
+                return index - map.get(temp);
+            }
+            map.put(temp, index++);
+            temp = temp.next;
+        }
+        return 0;
+    }
+    // Find the length of the loop (Tortoise Hare)
+    static int countNodesinLoop2(Node head) {
+        Node fast = head;
+        Node slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                int count = 1;
+                fast = fast.next;
+                while (fast != slow) {
+                    fast = fast.next;
+                    count++;
+                }
+                return count;
+            }
+        }
+        return 0;
     }
 }
