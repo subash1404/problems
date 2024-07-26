@@ -1,15 +1,15 @@
 package LL;
 
-public class SortLL {
-    class ListNode {
-        int val;
-        ListNode next;
+class ListNode {
+    int val;
+    ListNode next;
 
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
+    ListNode(int x) {
+        val = x;
+        next = null;
     }
+}
+public class SortLL {
     public ListNode merge(ListNode left, ListNode right) {
         ListNode node = new ListNode(-1);
         ListNode temp = node;
