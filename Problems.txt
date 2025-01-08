@@ -1,0 +1,93 @@
+### Drafted Questions for the Last Two Coding Problems
+
+---
+
+#### **Question 1: Card Game Matching (Comparison of Discrete Values)**  
+**Problem Statement**:  
+You are given two sets of cards:
+- **Set A** contains `N` cards, each with a number. 
+- **Set B** contains `K` cards, each with a number.  
+
+You must compare each card from **Set A** with the cards in **Set B** according to the following rules:  
+1. If the card from **Set A** equals a special number `K`, print `1`.  
+2. If the card from **Set A** matches any number in **Set B** but is **not equal** to `K`, print `0`.  
+3. If the card from **Set A** does not match any number in **Set B**, print `#`.  
+
+**Input Format**:
+1. The first line contains two integers `N` (size of Set A) and `K` (the special number).  
+2. The second line contains `N` space-separated integers representing the cards in **Set A**.  
+3. The third line contains `K` space-separated integers representing the cards in **Set B**.  
+
+**Output Format**:  
+Print a sequence of numbers (`0`, `1`, and/or `#`) corresponding to the result of comparing each card in **Set A**.
+
+**Sample Input**:
+```
+6 3
+10 10 14 2 3 3
+10 2 3
+```
+
+**Sample Output**:
+```
+00#011
+```
+
+**Explanation**:  
+- Card `10`: Found in **Set B**, not `K` → `0`.  
+- Card `10`: Found in **Set B**, not `K` → `0`.  
+- Card `14`: Not in **Set B** → `#`.  
+- Card `2`: Found in **Set B**, not `K` → `0`.  
+- Card `3`: Equals `K` → `1`.  
+- Card `3`: Equals `K` → `1`.  
+
+---
+
+#### **Question 2: Tasty Dishes Combination Counting**  
+**Problem Statement**:  
+A chef has `N` ingredients available to prepare dishes.  
+- For each ingredient `i`, the amount used must lie between `L[i]` (minimum) and `R[i]` (maximum).  
+- A dish satisfies the person's appetite only if its **total weight** (sum of all ingredient amounts) lies between `A` (minimum weight) and `B` (maximum weight).  
+
+Your task is to count all possible combinations of ingredient amounts that result in dishes satisfying these conditions.  
+
+**Input Format**:  
+1. The first line contains an integer `N` (number of ingredients).  
+2. The next `N` lines contain two space-separated integers, `L[i]` and `R[i]` (range of ingredient amounts for the `i-th` ingredient).  
+3. The last line contains two space-separated integers `A` and `B` (appetite range).  
+
+**Output Format**:  
+Print a single integer denoting the number of valid combinations of ingredient amounts.
+
+**Constraints**:  
+- All values in `L[i]`, `R[i]`, `A`, and `B` are natural numbers ≤ 100.  
+- `N ≤ 10` to ensure computation is feasible.  
+
+**Sample Input**:
+```
+2
+4 5
+2 5
+7 9
+```
+
+**Sample Output**:
+```
+8
+```
+
+**Explanation**:  
+- Possible combinations of ingredient amounts:  
+  1. `(4, 3) → 7 (Valid)`
+  2. `(4, 4) → 8 (Valid)`
+  3. `(4, 5) → 9 (Valid)`
+  4. `(5, 2) → 7 (Valid)`
+  5. `(5, 3) → 8 (Valid)`
+  6. `(5, 4) → 9 (Valid)`
+  7. `(5, 5) → 10 (Invalid)`
+  8. `(5, 5) → 10 (Invalid)`  
+  Count of valid dishes: `8`.  
+
+--- 
+
+Feel free to tweak the language or formatting further!
