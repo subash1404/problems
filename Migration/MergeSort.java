@@ -1,3 +1,4 @@
+package Migration;
 public class MergeSort {
     static public void merge(int[] arr, int low, int mid, int high) {
         int[] temp = new int[low+(high-low)+1];

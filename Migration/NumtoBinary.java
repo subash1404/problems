@@ -1,3 +1,4 @@
+package Migration;
 import java.util.Scanner;
 
 public class NumtoBinary {

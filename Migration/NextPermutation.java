@@ -1,3 +1,4 @@
+package Migration;
 import java.util.Scanner;
 
 public class NextPermutation {
@@ -11,6 +12,7 @@ public class NextPermutation {
         int ind = -1;
         // Find the breakpoint, the point where the dip happens
         // the array before the breakpoint will be fixed and we will not disturb it
+        // n-2 is the point where the dip can start to happen
         for (int i = n - 2; i >= 0; i--) {
             if (arr[i] < arr[i + 1]) {
                 ind = i;
@@ -30,8 +32,7 @@ public class NextPermutation {
             }
             return;
         }
-        // then we have to find a element to swap with the from index + 1 -> n 
-        //which is just greater than the arr[index]
+        // then we have to find a element to swap with the ind which is just greater than the arr[ind]
         for (int i = n - 1; i >= 0; i--) {
             if (arr[ind] < arr[i]) {
                 int temp = arr[ind];
@@ -41,7 +42,7 @@ public class NextPermutation {
             }
         }
         // we have to basically sort the arr from ind+1 -> n
-        // as the array from ind+1 -> n was already in decreasing order just reverse it
+        // as the array from ind+1 -> n was already in decreasing order(because we found the dip in the index ony) so just reverse it
         int i = ind + 1, j = n - 1;
         while (i < j) {
             int temp = arr[i];
