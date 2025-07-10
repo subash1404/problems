@@ -8,17 +8,25 @@ public class PrimePairsWithTargetSum {
         Arrays.fill(primes, true);
         primes[0] = false;
         primes[1] = false;
-        for (int i = 2; i < Math.sqrt(n); i++) {
+        // for (int i = 2; i <= Math.sqrt(n); i++) {
+        //     if (primes[i]) {
+        //         for (int p = 2; p < n; p++) {
+        //             int out = p * i;
+        //             if (out > n)
+        //                 break;
+        //             primes[out] = false;
+        //         }
+        //     }
+        // }
+        // Sieve of Eratosthenes algorithm
+        for (int i = 2; i * i <= n; i++) {
             if (primes[i]) {
-                for (int p = 2; p < n; p++) {
-                    int out = p * i;
-                    if (out > n)
-                        break;
-                    primes[out] = false;
+                for (int j = i * i; j <= n; j += i) {
+                    primes[j] = false;
                 }
             }
         }
-        //This didnt work in leetcode time limit exceeded
+        // This didnt work in leetcode time limit exceeded
         // for(int i = 2;i<=n;i++){
         // int num = i;
         // for(int j=2;j<=i/2;j++){
@@ -40,6 +48,7 @@ public class PrimePairsWithTargetSum {
         }
         return list;
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -50,36 +59,34 @@ public class PrimePairsWithTargetSum {
     }
 }
 
-
-
-//Brute Force kinda soln
+// Brute Force kinda soln
 // public static boolean prime(int n) {
-//     if (n == 0 || n == 1)
-//         return false;
-//     boolean flag = true;
-//     for (int i = 2; i <= n / 2; i++) {
-//         if (n % i == 0) {
-//             return false;
-//         }
-//     }
-//     return flag;
+// if (n == 0 || n == 1)
+// return false;
+// boolean flag = true;
+// for (int i = 2; i <= n / 2; i++) {
+// if (n % i == 0) {
+// return false;
+// }
+// }
+// return flag;
 // }
 
 // static public List<List<Integer>> findPrimePairs(int n) {
-//     List<List<Integer>> ans = new ArrayList<List<Integer>>();
-//     List<Integer> primes = new ArrayList<>();
-//     for (int i = 2; i < n; i++) {
-//         if (prime(i))
-//             primes.add(i);
-//     }
-//     for (int i = 0; i < primes.size(); i++) {
-//         int comp = n - primes.get(i);
-//         if (primes.get(i) + primes.get(i) == n) {
-//             // ans.add(Arrays.asList(2,3));
-//             ans.add(Arrays.asList(primes.get(i), primes.get(i)));
-//         } else if (primes.contains(comp) && comp > primes.get(i)) {
-//             ans.add(Arrays.asList(primes.get(i), comp));
-//         }
-//     }
-//     return ans;
+// List<List<Integer>> ans = new ArrayList<List<Integer>>();
+// List<Integer> primes = new ArrayList<>();
+// for (int i = 2; i < n; i++) {
+// if (prime(i))
+// primes.add(i);
+// }
+// for (int i = 0; i < primes.size(); i++) {
+// int comp = n - primes.get(i);
+// if (primes.get(i) + primes.get(i) == n) {
+// // ans.add(Arrays.asList(2,3));
+// ans.add(Arrays.asList(primes.get(i), primes.get(i)));
+// } else if (primes.contains(comp) && comp > primes.get(i)) {
+// ans.add(Arrays.asList(primes.get(i), comp));
+// }
+// }
+// return ans;
 // }

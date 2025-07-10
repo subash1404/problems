@@ -1,3 +1,4 @@
+package Migration;
 //Newton method
 import java.util.Scanner;
 
@@ -23,6 +24,18 @@ public class PerfectSquare {
         }
         return false;
     }
+
+    static boolean isPerfectSquareNewton(int n) {
+        if (n < 2)
+            return true;
+
+        long x = n / 2;
+        while (x * x > n) {
+            x = (x + n / x) / 2;
+        }
+        return x * x == n;
+    }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

@@ -1,3 +1,4 @@
+package Migration;
 import java.util.Scanner;
 
 public class PeakElementII {
@@ -14,6 +15,8 @@ public class PeakElementII {
     }
 
     public static int[] findPeakGrid(int[][] mat) {
+        //  Find the middle column and find the largest value in that column
+        //  Compare the larger value in the column with the left and right values
         int m = mat.length, n = mat[0].length;
         int low = 0, high = n - 1;
         while (low <= high) {
