@@ -1,3 +1,4 @@
+package Migration;
 // Given a 0-indexed string word and a character ch, reverse the segment of word that starts at index 0 and 
 //ends at the index of the first occurrence of ch (inclusive). If the character ch does not exist in word, 
 //do nothing.

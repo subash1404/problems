@@ -18,6 +18,7 @@ public class PrimePairsWithTargetSum {
         //         }
         //     }
         // }
+
         // Sieve of Eratosthenes algorithm
         for (int i = 2; i * i <= n; i++) {
             if (primes[i]) {
@@ -26,6 +27,7 @@ public class PrimePairsWithTargetSum {
                 }
             }
         }
+        
         // This didnt work in leetcode time limit exceeded
         // for(int i = 2;i<=n;i++){
         // int num = i;
