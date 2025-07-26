@@ -1,3 +1,4 @@
+package Migration;
 // Given an array Arr of size N,print the second largest distinct element from an array.If the second largest
 // element doesn'texist then return-1.
 

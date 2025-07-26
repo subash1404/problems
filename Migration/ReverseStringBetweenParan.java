@@ -1,3 +1,5 @@
+package Migration;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Stack;
@@ -43,7 +45,6 @@ public class ReverseStringBetweenParan {
         return sb.toString();
     }
     public static void main(String[] args) {
-        System.out.println(reverseParentheses("(abcd)"));
         System.out.println(reverseParentheses2("(abcd)"));
     }
 }

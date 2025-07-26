@@ -1,3 +1,4 @@
+package Migration;
 import java.util.*;
 public class RotateArray {
     static public void reverse(int[] arr, int li, int ri) {
@@ -15,7 +16,10 @@ public class RotateArray {
         if (k < 0) {
             k += nums.length;
         }
-        int partIndex = nums.length - k - 1;
+        int partIndex = nums.length - k - 1; // for right rotation
+        // int partIndex = k - 1; for left rotation
+        // 1 2 3 4 5 6. 2 1 6 5 4 3
+        // 1 2 3 4 5 6. 4 3 2 1 5 6
         reverse(nums, 0, partIndex);
         reverse(nums, partIndex + 1, nums.length - 1);
         reverse(nums, 0, nums.length - 1);

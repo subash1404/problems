@@ -1,3 +1,4 @@
+package Migration;
 import java.util.*;
 public class RevStack {
 public static void main(String[] args) {

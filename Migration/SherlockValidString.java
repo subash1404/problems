@@ -1,3 +1,4 @@
+package Migration;
 /*Sherlock considers a string to be valid if all the characters occur at same no. of times. It is also considered valid if he remove just one 
 characterat on eindex and the remaining characters will occur the same no of times return yes if the string is valid else no */
 
@@ -31,19 +32,12 @@ public class SherlockValidString {
         int second = arr[1];
         int last = arr[arr.length - 1];
         int secondLast = arr[arr.length - 2];
-        if (first == last) {
+        if (first == last ||
+                (first == 1 && second == last) ||
+                (first == second && second == secondLast && last == secondLast + 1)) {
             System.out.println("YES");
-            System.out.println(s);
-        } else if (second == last && first == 1) {
-            System.out.println("YES");
-            System.out.println(s.substring(1, s.length()));
-        } else if (secondLast == last - 1 && first == secondLast) {
-            System.out.println("YES");
-            System.out.print(s.substring(0, s.length() - last));
-            System.out.println(s.substring(s.length() - last + 1));
-
         } else {
-            System.out.println("No");
+            System.out.println("NO");
         }
     }
 
